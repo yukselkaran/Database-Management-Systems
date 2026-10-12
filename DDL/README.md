@@ -34,6 +34,7 @@ General pattern:
 constraint constraint_name foreign key(fk_column)
     references parent_table(pk_column)
 ```
+<img width="924" height="713" alt="Ekran Resmi 2026-10-12 17 52 08" src="https://github.com/user-attachments/assets/0306f44d-05b9-4e4a-867c-5a53c8ebb3e6" />
 
 Relationships in the schema:
 
