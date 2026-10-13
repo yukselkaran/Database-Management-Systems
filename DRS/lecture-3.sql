@@ -149,3 +149,55 @@ update dept set employeeid = 246 where deptid = 40;
 select lname as "last name", fname as "first name" from employee;
 
 select lname, fname, salary from employee where salary < 50000;
+
+-- 1. display full names and commissions of all employees
+select lname || ', ' || fname as "full name", commission
+from employee;
+
+-- 2. display employees who do not get any commission
+select fname, lname
+from employee
+where commission is null;
+
+-- 3. give a 10% raise to the employee with id 200
+update employee
+set salary = salary * 1.10
+where employeeid = 200;
+
+-- 4. delete department number 30 from the department table
+delete from dept
+where deptid = 30;
+
+-- if the delete is unsuccessful, check employees in department 30
+select employeeid, fname, lname
+from employee
+where deptid = 30;
+
+-- if necessary, remove the department reference from those employees
+update employee
+set deptid = null
+where deptid = 30;
+
+-- try deleting department 30 again
+delete from dept
+where deptid = 30;
+
+-- 5. display employees whose first names start with 's'
+select *
+from employee
+where fname like 's%';
+
+-- 6. display all employee names and hire dates
+select fname, lname, hiredate
+from employee;
+
+-- 7. change the location of the finance department to california
+update dept
+set location = 'california'
+where deptname = 'finance';
+
+-- 8. display employees earning less than 100000, sorted by salary descending
+select *
+from employee
+where salary < 100000
+order by salary desc;
